@@ -25,16 +25,16 @@ http {
   server {
     listen 8080;
     server_name sample-domain.com;
-    rewrite ^/test/123123$ http://another-domain.com/awe123123 permanent;
-    rewrite ^/test/555$ http://another-domain.com/aweaw permanent;
-    rewrite ^/test/(.*)$ http://another-domain.com/path/ permanent;
+    rewrite ^/test/123123$ http://another-domain.com/awe123123 break;
+    rewrite ^/test/555$ http://another-domain.com/aweaw break;
+    rewrite ^/test/(.*)$ http://another-domain.com/path/ break;
   }
   server {
     listen 8080;
     server_name different-domain.com;
-    rewrite ^/test/123123$ http://another-domain.com/awe123123 permanent;
-    rewrite ^/test/4555$ http://another-domain.com/aweaw permanent;
-    rewrite ^/test123/3$ http://another-domain.com/tawe3 permanent;
+    rewrite ^/test/123123$ http://another-domain.com/awe123123 break;
+    rewrite ^/test/4555$ http://another-domain.com/aweaw break;
+    rewrite ^/test123/3$ http://another-domain.com/tawe3 break;
   }
 }
 ```
